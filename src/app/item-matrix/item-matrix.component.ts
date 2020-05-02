@@ -5,13 +5,12 @@ import $ from 'jquery';
 export class Cell {
   public wanted: boolean;
   public count: number;
-  public imageUrl: string;
-  public setImage;
+  public imageName: string;
 
-  constructor(wanted, count, imageUrl) {
+  constructor(wanted, count, imageName) {
     this.wanted = wanted;
     this.count = count;
-    this.imageUrl = imageUrl;
+    this.imageName = imageName;
   }
 }
 
@@ -43,8 +42,7 @@ export class ItemMatrixComponent implements OnInit {
           this.MATRIX[i][j] = new Cell(false, 0, '');
 
         } else {
-          this.MATRIX[i][j] = new Cell(false, 0, this.ASSETS_FOLDER + `${i}-${j}.png`);
-
+          this.MATRIX[i][j] = new Cell(false, 0, `${i}-${j}.png`);
         }
       }
     }
