@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="tft-matrix" (mouseleave)="onMouseLeaveMatrix($event)" (mouseenter)="onMouseEnterMatrix()">
+    <div class="row" *ngFor="let row of MATRIX_DIM">
+      <div id="{{col}}-{{row}}" [attr.row]=row [attr.col]=col class="col matrix-cell" *ngFor="let col of MATRIX_DIM"
+           (mouseover)="onMouseOver($event)" (mouseleave)="onMouseLeave($event)" (click)="onMouseClick($event)"
+           (auxclick)="onMiddleMouseClick($event)"
+           (contextmenu)="onRightClick($event)">
+        [{{col}}][{{row}}
+        ] {{ col == 0 || row == 0 ? this.MATRIX[col][row].count : ""}} {{this.MATRIX[col][row].wanted == true ? '*' : ""}}
+        <img src="{{this.MATRIX[col][row].imageUrl}}">
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div>
+  <li>build item: left click between two items (subtracts)</li>
+  <li>add/remove item piece: left click on row or column pieces</li>
+</div>
+
