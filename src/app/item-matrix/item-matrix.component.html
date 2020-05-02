@@ -1,22 +1,33 @@
 <div class="container">
-  <div class="tft-matrix" (mouseleave)="onMouseLeaveMatrix($event)" (mouseenter)="onMouseEnterMatrix()">
+  <div class="tft-matrix" class="container tft-matrix">
     <div class="row" *ngFor="let row of MATRIX_DIM">
-      <div id="{{col}}-{{row}}" [attr.row]=row [attr.col]=col class="col matrix-cell" *ngFor="let col of MATRIX_DIM"
-           (mouseover)="onMouseOver($event)" (mouseleave)="onMouseLeave($event)" (click)="onMouseClick($event)"
-           (auxclick)="onMiddleMouseClick($event)"
-           (contextmenu)="onRightClick($event)">
-        [{{col}}][{{row}}
-        ] {{ col == 0 || row == 0 ? this.MATRIX[col][row].count : ""}} {{this.MATRIX[col][row].wanted == true ? '*' : ""}}
-        <img src="{{this.MATRIX[col][row].imageUrl}}">
+      <div (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
+           [class.item-have]="this.MATRIX[col][row].count > 0"
+           [class.item-can-buy]="this.canBuy(col, row) == true"
+           [class.item-focused]="row === this.highlight_row_num || this.highlight_col_num === col"
+           id="{{col}}-{{row}}" [attr.row]=row [attr.col]=col class="col item" *ngFor="let col of MATRIX_DIM"
+           (click)="onMouseClick(col, row)" (auxclick)="onOtherClick($event, col, row)">
+        <div class="item-markers no-highlight">{{ col == 0 || row == 0 ? this.MATRIX[col][row].count : ""}}</div>
+        <div (click)="markAsWant($event, row, col)" [class.item-star-select]="this.MATRIX[col][row].wanted === true"
+             class="item-star no-highlight">*
+        </div>
+        <img
+             (contextmenu)="$event.preventDefault()" alt="item-image" class="item-image"
+             src="{{this.MATRIX[col][row].imageUrl}}">
       </div>
-
     </div>
   </div>
 
 </div>
 
 <div>
-  <li>build item: left click between two items (subtracts)</li>
-  <li>add/remove item piece: left click on row or column pieces</li>
+  <h3>Item Piece</h3>
+  <li>left click: increase item count</li>
+  <li>right click: decrease item count</li>
+  <h3>Item (Completed Item)</h3>
+  <li>left click: buy (decrease item pieces); only clickable if highlighted</li>
+
+  <h3>General</h3>
+  <li>Middle Mouse Click: Star the item as wanted</li>
 </div>
 
