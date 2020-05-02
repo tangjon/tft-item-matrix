@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="tft-matrix" class="container tft-matrix">
+<div class="container-fluid">
+  <div class="tft-matrix" class="container-fluid tft-matrix">
     <div class="row" *ngFor="let row of MATRIX_DIM">
       <div (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
            [class.item-have]="this.MATRIX[col][row].count > 0"

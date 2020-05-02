@@ -110,15 +110,23 @@ export class ItemMatrixComponent implements OnInit {
   // ACTIONS
 
   buyItem(col, row) {
-    if (this.MATRIX[col][0].count > 0 && this.MATRIX[0][row].count > 0) {
+    if (col === row){
+      this.MATRIX[col][0].count -= 2;
+      this.MATRIX[0][row].count -= 2;
+    } else {
       this.MATRIX[col][0].count -= 1;
       this.MATRIX[0][row].count -= 1;
+      this.MATRIX[row][0].count -= 1;
+      this.MATRIX[0][col].count -= 1;
     }
   }
 
   // FLAGS
 
   canBuy(col, row) {
+    if (col === row) {
+      return this.MATRIX[0][row].count >= 2;
+    }
     return this.MATRIX[0][row].count > 0 && this.MATRIX[col][0].count > 0;
   }
 

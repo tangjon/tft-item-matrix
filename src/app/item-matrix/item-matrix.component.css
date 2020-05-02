@@ -49,6 +49,7 @@
   background-color: #ffc107;
   padding: 4px 7px;
   opacity: 0;
+  font-size: 80%;
 }
 
 .item-star-select {
@@ -67,7 +68,6 @@
 }
 
 .tft-matrix {
-  max-width: 80%;
   max-height: 80%;
 }
 
