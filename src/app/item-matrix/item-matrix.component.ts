@@ -119,7 +119,7 @@ export class ItemMatrixComponent implements OnInit {
   // FLAGS
 
   canBuy(col, row) {
-    return this.MATRIX[0][row].count > 0 && this.MATRIX[col][0].count > 0 && col <= row;
+    return this.MATRIX[0][row].count > 0 && this.MATRIX[col][0].count > 0;
   }
 
 
