@@ -1,23 +1,20 @@
-<div class="container-fluid">
-  <div class="tft-matrix" class="container-fluid tft-matrix">
-    <div class="row" *ngFor="let row of MATRIX_DIM">
-      <div (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
-           [class.item-have]="this.MATRIX[col][row].count > 0"
-           [class.item-can-buy]="this.canBuy(col, row) == true"
-           [class.item-focused]="row === this.highlight_row_num || this.highlight_col_num === col"
-           id="{{col}}-{{row}}" [attr.row]=row [attr.col]=col class="col item" *ngFor="let col of MATRIX_DIM"
-           (click)="onMouseClick(col, row)" (auxclick)="onOtherClick($event, col, row)">
-        <div class="item-markers no-highlight">{{ col == 0 || row == 0 ? this.MATRIX[col][row].count : ""}}</div>
-        <div (click)="markAsWant($event, row, col)" [class.item-star-select]="this.MATRIX[col][row].wanted === true"
-             class="item-star no-highlight">*
-        </div>
-        <img  *ngIf="this.MATRIX[col][row].imageName !== ''"
-             (contextmenu)="$event.preventDefault()" alt="item-image" class="item-image"
-             src="assets/images/set3/{{this.MATRIX[col][row].imageName}}">
+<div class="container tft-matrix">
+  <div class="row" *ngFor="let row of MATRIX_DIM">
+    <div (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
+         [class.item-have]="this.MATRIX[col][row].count > 0"
+         [class.item-can-buy]="this.canBuy(col, row) == true"
+         [class.item-focused]="row === this.highlight_row_num || this.highlight_col_num === col"
+         id="{{col}}-{{row}}" [attr.row]=row [attr.col]=col class="col item" *ngFor="let col of MATRIX_DIM"
+         (click)="onMouseClick(col, row)" (auxclick)="onOtherClick($event, col, row)">
+      <div class="item-markers no-highlight">{{ col == 0 || row == 0 ? this.MATRIX[col][row].count : ""}}</div>
+      <div (click)="markAsWant($event, row, col)" [class.item-star-select]="this.MATRIX[col][row].wanted === true"
+           class="item-star no-highlight">*
       </div>
+      <img *ngIf="this.MATRIX[col][row].imageName !== ''"
+           (contextmenu)="$event.preventDefault()" alt="item-image" class="item-image"
+           src="assets/images/set3/{{this.MATRIX[col][row].imageName}}">
     </div>
   </div>
-
 </div>
 
 <div>
