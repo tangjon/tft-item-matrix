@@ -40,7 +40,6 @@ export class ItemMatrixComponent implements OnInit {
       for (let j = 0; j < this.MATRIX_DIM.length; j++) {
         if (i === 0 && j === 0) {
           this.MATRIX[i][j] = new Cell(false, 0, '');
-
         } else {
           this.MATRIX[i][j] = new Cell(false, 0, `${i}-${j}.png`);
         }
@@ -108,12 +107,13 @@ export class ItemMatrixComponent implements OnInit {
 
 
   // ACTIONS
-
   buyItem(col, row) {
-    if (col === row){
-      this.MATRIX[col][0].count -= 2;
-      this.MATRIX[0][row].count -= 2;
-    } else {
+    if (col === row) {
+      if (this.MATRIX[col][0].count >= 2 && this.MATRIX[0][row].count >= 2) {
+        this.MATRIX[col][0].count -= 2;
+        this.MATRIX[0][row].count -= 2;
+      }
+    } else if (this.MATRIX[col][0].count >= 1 && this.MATRIX[0][row].count >= 1 && this.MATRIX[row][0].count >= 1 && this.MATRIX[0][col].count >= 1) {
       this.MATRIX[col][0].count -= 1;
       this.MATRIX[0][row].count -= 1;
       this.MATRIX[row][0].count -= 1;
@@ -167,8 +167,10 @@ export class ItemMatrixComponent implements OnInit {
 
   onOtherClick($event: MouseEvent, col: number, row: number) {
     if ($event.which === this.RIGHT_CLICK) {
-      this.MATRIX[col][row].count -= 1;
-      this.MATRIX[row][col].count -= 1;
+      if (this.MATRIX[col][row].count >= 1 && this.MATRIX[row][col].count >= 1) {
+        this.MATRIX[col][row].count -= 1;
+        this.MATRIX[row][col].count -= 1;
+      }
     }
   }
 }

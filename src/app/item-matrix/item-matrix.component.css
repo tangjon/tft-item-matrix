@@ -10,7 +10,7 @@
 
 .item-have > img {
   opacity: 1!important;
-  outline: 5px solid green !important;
+  outline: 5px solid green;
   outline-offset: -5px !important;
 }
 
