@@ -11,7 +11,7 @@
         <div (click)="markAsWant($event, row, col)" [class.item-star-select]="this.MATRIX[col][row].wanted === true"
              class="item-star no-highlight">*
         </div>
-        <img
+        <img *ngIf="this.MATRIX[col][row].imageName !== ''"
              (contextmenu)="$event.preventDefault()" alt="item-image" class="item-image"
              src="assets/images/set3/{{this.MATRIX[col][row].imageName}}">
       </div>
