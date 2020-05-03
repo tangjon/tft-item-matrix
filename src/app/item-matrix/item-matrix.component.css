@@ -26,7 +26,7 @@
 }
 
 .item-can-buy, .item-can-buy:hover, .item-can-buy > .item-image {
-  outline: 5px solid yellow;
+  outline: 5px solid #007bff;
   outline-offset: -5px;
   opacity: 1!important;
 }
@@ -46,13 +46,15 @@
   color: white;
   z-index: 3;
   font-weight: bold;
-  background-color: #ffc107;
+  background-color: #16881e;
   padding: 4px 7px;
   opacity: 0;
   font-size: 80%;
+  outline: 5px solid black;
+  outline-offset: -5px;
 }
 
-.item-star-select {
+.item-star-select, .item-star-select + .item-image {
   opacity: 1 !important;
 }
 
