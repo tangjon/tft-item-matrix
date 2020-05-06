@@ -1,6 +1,6 @@
 <div class="container tft-matrix">
   <div class="row" *ngFor="let row of MATRIX_DIM">
-    <div (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
+    <div [ngbTooltip]="MATRIX[col][row].tooltip" (mouseenter)="onMouseOver(col, row)" (mouseleave)="onMouseLeave()"
          [class.item-have]="this.MATRIX[col][row].count > 0"
          [class.item-can-buy]="this.canBuy(col, row) == true"
          [class.item-focused]="row === this.highlight_row_num || this.highlight_col_num === col"

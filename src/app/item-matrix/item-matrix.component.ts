@@ -1,16 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {element} from 'protractor';
 import $ from 'jquery';
+import {HttpClient} from '@angular/common/http';
 
 export class Cell {
   public wanted: boolean;
   public count: number;
   public imageName: string;
+  public tooltip: string;
 
   constructor(wanted, count, imageName) {
     this.wanted = wanted;
     this.count = count;
     this.imageName = imageName;
+  }
+
+  setToolTip(text) {
+    this.tooltip = text;
   }
 }
 
@@ -33,7 +39,7 @@ export class ItemMatrixComponent implements OnInit {
   highlight_col_num = -1;
   highlight_row_num = -1;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     // set inner matrix
     for (let i = 0; i < this.MATRIX_DIM.length; i++) {
       this.MATRIX[i] = new Array(this.MATRIX_DIM.length);
@@ -41,7 +47,17 @@ export class ItemMatrixComponent implements OnInit {
         if (i === 0 && j === 0) {
           this.MATRIX[i][j] = new Cell(false, 0, '');
         } else {
-          this.MATRIX[i][j] = new Cell(false, 0, `${i}-${j}.png`);
+          let name = `${i}-${j}`;
+          if (j === 0) {
+            name = `${j}-${i}`;
+          }
+          this.MATRIX[i][j] = new Cell(false, 0, name + '.png');
+          if (j !== 0 && i !== 0) {
+            this.http.get(this.ASSETS_FOLDER + name + '.txt', {responseType: 'text'}).subscribe(text => {
+              this.MATRIX[i][j].setToolTip(text);
+            });
+          }
+
         }
       }
     }
