@@ -1,0 +1,1 @@
+Frozen HeartReduces the Attack Speed of nearby enemies by 50%. Each Frozen Heart a champion carries beyond the first increases the radius of this effect.

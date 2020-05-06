@@ -1,0 +1,1 @@
+Bramble VestNegates bonus damage from incoming critical hits. On being hit by a Basic Attack, deal 100/140/200 magic damage to all nearby enemies (once every 2.5 seconds).

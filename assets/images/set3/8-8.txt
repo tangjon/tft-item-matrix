@@ -1,0 +1,1 @@
+Warmog's ArmorThe wearer regenerates 5% of their missing Health, but not more than 150, per second.

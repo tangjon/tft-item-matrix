@@ -1,0 +1,1 @@
+Luden's EchoWhen the wearer casts their spell, the first target dealt magic damage and up to 3 nearby enemies are dealt an additional 150/175/225 magic damage.

@@ -1,0 +1,1 @@
+Sword BreakerThe wearer's Basic Attacks have a 25% chance to disarm the target for 3 seconds, preventing that enemy from making Basic Attacks.

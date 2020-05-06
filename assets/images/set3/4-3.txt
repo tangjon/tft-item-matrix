@@ -1,0 +1,1 @@
+Guinsoo's RagebladeBasic Attacks grant +5% bonus Attack Speed for the rest of combat. This effect can stack any number of times.

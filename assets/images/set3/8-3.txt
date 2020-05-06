@@ -1,0 +1,1 @@
+MorellonomiconWhen the wearer deals damage with their spell, they burn the target, dealing 27% of the target's Maximum Health as true damage over 10 seconds and reducing healing by 50% for the duration of the burn. [Unique - Only One Per Champion]

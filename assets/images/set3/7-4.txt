@@ -1,0 +1,1 @@
+Runaan's HurricaneBasic Attacks fire a bolt at another nearby enemy, dealing 70% of the wearer's Attack Damage and applying on-hit effects.

@@ -1,0 +1,1 @@
+DeathbladeContributing to a kill grants +30 Attack Damage for the remainder of combat. This effect can stack any number of times (starting at 0).

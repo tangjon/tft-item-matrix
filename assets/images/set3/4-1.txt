@@ -1,0 +1,1 @@
+Last WhisperWhen the wearer inflicts a critical hit, the target's Armor is reduced by 90% for 3 seconds. This effect does not stack. [Unique - Only One Per Champion]

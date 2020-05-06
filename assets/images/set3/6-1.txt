@@ -1,0 +1,1 @@
+Shroud of StillnessWhen combat begins, shoots a beam straight ahead that delays affected enemies' first spellcast, increasing their max Mana by 40% until they cast.

@@ -1,0 +1,1 @@
+Ionic SparkEnemies within 2 hexes have their Magic Resist reduced by 50% (does not stack). When they cast a spell, they are zapped taking magic damage equal to 225% of their max Mana.
